@@ -19,13 +19,12 @@ a{color:inherit;text-decoration:none}
 a:hover{opacity:.6}
 a:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
 .up{text-transform:uppercase;letter-spacing:.12em;font-size:11px}
-.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 0;position:relative}
+.hero{text-align:center;padding:64px 0 8px}
 .hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:18px;animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
 @media (prefers-reduced-motion: reduce){.hint{animation:none}}
-html{scroll-behavior:smooth;scroll-snap-type:y proximity}
-.hero,#produkte-sec{scroll-snap-align:start}
-#produkte-sec{border-top:0;padding-top:48px}
+html{scroll-behavior:smooth}
+#produkte-sec{border-top:0;padding-top:40px}
 .hero h1{font-weight:400;font-size:clamp(22px,3vw,34px);letter-spacing:.01em;margin:0 0 14px;text-wrap:balance}
 .hero p{color:var(--muted);margin:0 auto;max-width:46ch}
 .cta{display:inline-block;margin-top:34px;border:1px solid var(--ink);padding:12px 26px}
@@ -178,8 +177,6 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
   <div class="view" id="v-start">
     <div class="hero">
       <h1><span class="de">KI-Lösungen, die Ihren Alltag vereinfachen.</span><span class="en">AI solutions that simplify your everyday work.</span></h1>
-      <a class="cta up" href="#kontakt"><span class="de">Kontakt</span><span class="en">Contact</span></a>
-      <a class="hint" href="#produkte" aria-label="Zu den Produkten">↓</a>
     </div>
     <section id="produkte-sec">
       <div class="label up"><span class="de">Produkte</span><span class="en">Products</span></div>
