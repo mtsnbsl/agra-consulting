@@ -19,7 +19,13 @@ a{color:inherit;text-decoration:none}
 a:hover{opacity:.6}
 a:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
 .up{text-transform:uppercase;letter-spacing:.12em;font-size:11px}
-.hero{padding:15vh 0 12vh;text-align:center}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 0;position:relative}
+.hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:18px;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+@media (prefers-reduced-motion: reduce){.hint{animation:none}}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+.hero,#produkte-sec{scroll-snap-align:start}
+#produkte-sec{border-top:0;padding-top:48px}
 .hero h1{font-weight:400;font-size:clamp(22px,3vw,34px);letter-spacing:.01em;margin:0 0 14px;text-wrap:balance}
 .hero p{color:var(--muted);margin:0 auto;max-width:46ch}
 .cta{display:inline-block;margin-top:34px;border:1px solid var(--ink);padding:12px 26px}
@@ -171,32 +177,11 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
 <main>
   <div class="view" id="v-start">
     <div class="hero">
-      <h1><span class="de">KI, die Ihrem Büro Arbeit abnimmt.</span><span class="en">AI that takes work off your desk.</span></h1>
+      <h1><span class="de">KI-Lösungen, die Ihren Alltag vereinfachen.</span><span class="en">AI solutions that simplify your everyday work.</span></h1>
       <a class="cta up" href="#kontakt"><span class="de">Kontakt</span><span class="en">Contact</span></a>
+      <a class="hint" href="#produkte" aria-label="Zu den Produkten">↓</a>
     </div>
-  </div>
-
-  <div class="view" id="v-ueber-mich">
-    <section>
-      <div class="label up"><span class="de">Über mich</span><span class="en">About</span></div>
-      <div class="about">
-        <div>
-          <p class="lead"><span class="de">Vasilios Mitsiioannou, in Frankfurt geboren und zu Hause. Abschluss als M.Sc. in Physik 2024. Agra Consulting wurde 2026 gegründet und bietet moderne, schlichte, minimalistische und dennoch wirkungsvolle Lösungen für unterschiedlichste Projekte.</span><span class="en">Vasilios Mitsiioannou, born and based in Frankfurt. M.Sc. in Physics, 2024. Agra Consulting was founded in 2026 and delivers modern, simple, minimalist yet effective solutions for a wide range of projects.</span></p>
-          <p><span class="de">Heute baue ich KI-Agenten, Apps und Websites, die ich selbst einsetze. Was bei mir funktioniert, richte ich für Ihr Unternehmen ein. Pragmatisch, mit festem Preis und Ihren Daten unter Ihrer Kontrolle.</span><span class="en">Today I build AI agents, apps and websites that I use myself. What works for me, I set up for your business. Pragmatic, at a fixed price, with your data under your control.</span></p>
-        </div>
-        <div class="c cv">
-          <div class="row"><span><span class="de">Agra Consulting, KI-Beratung</span><span class="en">Agra Consulting, AI consulting</span></span><span><span class="de">seit 2026</span><span class="en">since 2026</span></span></div>
-          <div class="row"><span><span class="de">Selbstständig im Vertrieb</span><span class="en">Self-employed in sales</span></span><span><span class="de">seit 2026</span><span class="en">since 2026</span></span></div>
-          <div class="row"><span><span class="de">M.Sc. Physik, Goethe-Universität Frankfurt</span><span class="en">M.Sc. Physics, Goethe University Frankfurt</span></span><span>2024</span></div>
-          <div class="row"><span><span class="de">B.Sc. Physik, Bachelorarbeit Machine Learning</span><span class="en">B.Sc. Physics, thesis on machine learning</span></span><span>2020</span></div>
-          <div class="row"><span><span class="de">Sprachen</span><span class="en">Languages</span></span><span>DE · GR · EN · FR</span></div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="view" id="v-produkte">
-    <section>
+    <section id="produkte-sec">
       <div class="label up"><span class="de">Produkte</span><span class="en">Products</span></div>
     <div class="product">
       <div class="txt">
@@ -352,6 +337,26 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
     </section>
   </div>
 
+  <div class="view" id="v-ueber-mich">
+    <section>
+      <div class="label up"><span class="de">Über mich</span><span class="en">About</span></div>
+      <div class="about">
+        <div>
+          <p class="lead"><span class="de">Vasilios Mitsiioannou, in Frankfurt geboren und zu Hause. Abschluss als M.Sc. in Physik 2024. Agra Consulting wurde 2026 gegründet und bietet moderne, schlichte, minimalistische und dennoch wirkungsvolle Lösungen für unterschiedlichste Projekte.</span><span class="en">Vasilios Mitsiioannou, born and based in Frankfurt. M.Sc. in Physics, 2024. Agra Consulting was founded in 2026 and delivers modern, simple, minimalist yet effective solutions for a wide range of projects.</span></p>
+          <p><span class="de">Heute baue ich KI-Agenten, Apps und Websites, die ich selbst einsetze. Was bei mir funktioniert, richte ich für Ihr Unternehmen ein. Pragmatisch, mit festem Preis und Ihren Daten unter Ihrer Kontrolle.</span><span class="en">Today I build AI agents, apps and websites that I use myself. What works for me, I set up for your business. Pragmatic, at a fixed price, with your data under your control.</span></p>
+        </div>
+        <div class="c cv">
+          <div class="row"><span><span class="de">Agra Consulting, KI-Beratung</span><span class="en">Agra Consulting, AI consulting</span></span><span><span class="de">seit 2026</span><span class="en">since 2026</span></span></div>
+          <div class="row"><span><span class="de">Selbstständig im Vertrieb</span><span class="en">Self-employed in sales</span></span><span><span class="de">seit 2026</span><span class="en">since 2026</span></span></div>
+          <div class="row"><span><span class="de">M.Sc. Physik, Goethe-Universität Frankfurt</span><span class="en">M.Sc. Physics, Goethe University Frankfurt</span></span><span>2024</span></div>
+          <div class="row"><span><span class="de">B.Sc. Physik, Bachelorarbeit Machine Learning</span><span class="en">B.Sc. Physics, thesis on machine learning</span></span><span>2020</span></div>
+          <div class="row"><span><span class="de">Sprachen</span><span class="en">Languages</span></span><span>DE · GR · EN · FR</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
   <div class="view" id="v-kontakt">
     <section class="contact">
       <div class="label up"><span class="de">Kontakt</span><span class="en">Contact</span></div>
@@ -442,13 +447,19 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
 <script>
 (function(){
   var root=document.documentElement;
-  var names=["start","ueber-mich","produkte","kontakt","impressum","datenschutz"];
+  var names=["start","ueber-mich","kontakt","impressum","datenschutz"];
+  var sec=document.getElementById("produkte-sec");
+  function nav(h){document.querySelectorAll("aside nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)})}
   function show(){
-    var h=(location.hash||"").slice(1); if(names.indexOf(h)<0) h="start";
-    names.forEach(function(n){document.getElementById("v-"+n).classList.toggle("on",n===h)});
-    document.querySelectorAll("aside nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
-    window.scrollTo(0,0);
+    var h=(location.hash||"").slice(1), v=h==="produkte"?"start":(names.indexOf(h)<0?"start":h);
+    names.forEach(function(n){document.getElementById("v-"+n).classList.toggle("on",n===v)});
+    nav(h==="produkte"?"produkte":v);
+    if(h==="produkte"){sec.scrollIntoView({behavior:"smooth"})} else {window.scrollTo(0,0)}
   }
+  window.addEventListener("scroll",function(){
+    if(!document.getElementById("v-start").classList.contains("on"))return;
+    nav(sec.getBoundingClientRect().top<window.innerHeight*0.5?"produkte":"start");
+  },{passive:true});
   function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
   function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
   function setLang(l){root.setAttribute("data-lang",l);root.setAttribute("lang",l);
