@@ -155,6 +155,59 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
 .bcard{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;margin:48px auto 0}
 .bcard img{width:100%;display:block;border-radius:6px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 @media (max-width:860px){.bcard{grid-template-columns:1fr}}
+
+a.product{color:inherit;text-decoration:none;cursor:pointer;border-radius:14px;transition:transform .25s ease}
+a.product:hover{opacity:1;transform:translateY(-3px)}
+a.product:hover .more{color:var(--ink)}
+a.product:focus-visible{outline:1px solid var(--ink);outline-offset:8px}
+.more{color:var(--muted);margin-top:18px}
+.st{color:var(--ink)}
+.detail{border-top:0;padding-top:48px}
+.back,.nextp{color:var(--muted);display:inline-block}
+.back:hover,.nextp:hover{color:var(--ink);opacity:1}
+.nextp{margin-top:56px}
+.dhead{display:flex;align-items:center;gap:16px;margin:28px 0 12px;flex-wrap:wrap}
+.dhead h2{font-weight:400;font-size:clamp(26px,3.4vw,40px);margin:0;letter-spacing:.02em}
+.pillst{border:1px solid var(--line);padding:5px 10px;border-radius:20px;color:var(--muted)}
+.dlead{max-width:62ch;color:var(--muted);font-size:15px;line-height:1.7;margin:0 0 8px}
+.dplat{color:var(--muted);margin:0 0 36px}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.shots.one{grid-template-columns:minmax(0,760px)}
+.shot .win{min-height:300px}
+.flow{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;justify-content:center}
+.node{border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:150px;text-align:center;background:var(--soft)}
+.node small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.arr{align-self:center;color:var(--muted)}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px}
+.dgrid .label{text-align:left;margin-bottom:14px}
+.dgrid ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.9}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips>span{border:1px solid var(--line);border-radius:6px;padding:5px 9px;font-size:12px}
+.muted{color:var(--muted)}
+.msg{max-width:85%;padding:8px 10px;border-radius:10px;line-height:1.5}
+.msg.me{background:#3987e5;align-self:end;justify-self:end}
+.msg.ai{background:var(--card)}
+.src{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.src span{font-size:9.5px;background:rgba(57,135,229,.22);color:#8fbaf3;padding:1px 6px;border-radius:9px}
+.input{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:7px 10px;color:rgba(255,255,255,.5)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal i{font-style:normal;text-align:center;padding:6px 0;border-radius:6px;background:var(--card);color:rgba(255,255,255,.55)}
+.cal i.x{background:rgba(57,135,229,.25);color:#fff}
+.cal i.xx{background:rgba(57,135,229,.5);color:#fff}
+.cal i.now{outline:1px solid #fff}
+.pop{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.08);color:#111;font-size:11px;letter-spacing:0}
+.pop .bar{background:#e9ebf0;padding:9px 12px;display:flex;gap:6px;align-items:center}
+.pop .bar i{width:10px;height:10px;border-radius:50%;background:#c5c9d2}
+.pop .bar span{margin-left:12px;background:#fff;border-radius:5px;padding:2px 10px;font-size:10px;color:#6b7280;flex:1;max-width:260px}
+.popwrap{background:linear-gradient(135deg,#eef1f6,#dfe5ef);padding:24px;display:flex;justify-content:flex-end;min-height:260px}
+.popup{width:260px;background:#1c1c1e;color:#f2f2f4;border-radius:10px;padding:12px;box-shadow:0 12px 30px rgba(0,0,0,.3);display:grid;gap:4px;align-content:start}
+.popup .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.popup .tabs b{font-weight:400;text-align:center;padding:5px 0;border-radius:6px;background:#2a2a2d;color:#9a9aa3}
+.popup .tabs b.on{background:#0d389e;color:#fff}
+.popup .row span:last-child{color:#9a9aa3}
+.btn2{margin-top:8px;text-align:center;padding:7px;border-radius:6px;background:#0d389e;color:#fff}
+.win .body{display:grid;gap:10px;align-content:start}
+@media (max-width:860px){.shots,.dgrid{grid-template-columns:1fr}.arr{transform:rotate(90deg)}.flow{flex-direction:column;align-items:center}}
 </style>
 </head>
 <body>
@@ -180,12 +233,13 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
     </div>
     <section id="produkte-sec">
       <div class="label up"><span class="de">Produkte</span><span class="en">Products</span></div>
-    <div class="product">
+    <a class="product" href="#crm">
       <div class="txt">
-        <div class="up" style="color:var(--muted)">01</div>
+        <div class="up" style="color:var(--muted)">01 · <span class="st"><span class="de">Im Einsatz</span><span class="en">In use</span></span></div>
         <h3>agraCRM</h3>
         <p><span class="de">CRM für den Vertrieb. Anrufe mit einem Klick erfassen, Tagesziele, Pipeline und Auswertung.</span><span class="en">Sales CRM. Log calls with one click, daily goals, pipeline and analytics.</span></p>
-        <p class="up"><span class="de">macOS · iOS folgt</span><span class="en">macOS · iOS coming</span></p>
+        <p class="up">macOS · iOS <span class="de">folgt</span><span class="en">coming</span></p>
+        <p class="more up"><span class="de">Mehr erfahren</span><span class="en">Learn more</span> →</p>
       </div>
       <div class="win" role="img" aria-label="agraCRM, Ansicht Akquise">
         <div class="side">
@@ -229,13 +283,14 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
           </div>
         </div>
       </div>
-    </div>
-    <div class="product">
+    </a>
+    <a class="product" href="#trade">
       <div class="txt">
-        <div class="up" style="color:var(--muted)">02</div>
+        <div class="up" style="color:var(--muted)">02 · <span class="st"><span class="de">Testbetrieb</span><span class="en">Testing</span></span></div>
         <h3>agraTRADE</h3>
         <p><span class="de">Handelsbots für Krypto im Testmodus. Mehrere Strategien parallel, Orderbuch und On-Chain-Daten, jeder Trade mit Begründung.</span><span class="en">Crypto trading bots in test mode. Several strategies in parallel, order book and on-chain data, every trade with its reason.</span></p>
-        <p class="up"><span class="de">macOS · Krypto-Trading</span><span class="en">macOS · Crypto trading</span></p>
+        <p class="up">macOS · <span class="de">Krypto-Trading</span><span class="en">Crypto trading</span></p>
+        <p class="more up"><span class="de">Mehr erfahren</span><span class="en">Learn more</span> →</p>
       </div>
       <div class="win" role="img" aria-label="agraTRADE, Bot-Ansicht mit Trades">
         <div class="side">
@@ -272,13 +327,14 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
           </div>
         </div>
       </div>
-    </div>
-    <div class="product">
+    </a>
+    <a class="product" href="#career">
       <div class="txt">
-        <div class="up" style="color:var(--muted)">03</div>
+        <div class="up" style="color:var(--muted)">03 · <span class="st"><span class="de">Im Einsatz</span><span class="en">In use</span></span></div>
         <h3>agraCAREER</h3>
         <p><span class="de">Jobsuche mit KI-Agent. Findet täglich passende Stellen, schreibt individuelle Anschreiben und Lebensläufe und hält den Stand jeder Bewerbung fest.</span><span class="en">Job search with an AI agent. Finds matching roles every day, writes tailored cover letters and CVs, and tracks every application.</span></p>
         <p class="up">macOS</p>
+        <p class="more up"><span class="de">Mehr erfahren</span><span class="en">Learn more</span> →</p>
       </div>
       <div class="win" role="img" aria-label="agraCAREER, Ansicht Heute">
         <div class="side">
@@ -315,13 +371,54 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
           </div>
         </div>
       </div>
-    </div>
-    <div class="product">
+    </a>
+    <a class="product" href="#chat">
       <div class="txt">
-        <div class="up" style="color:var(--muted)">04</div>
+        <div class="up" style="color:var(--muted)">04 · <span class="st"><span class="de">In Arbeit</span><span class="en">In progress</span></span></div>
+        <h3>agraChat</h3>
+        <p><span class="de">Lokaler KI-Chat über eigene Dokumente. Antwortet mit Quellen, nichts verlässt den Rechner.</span><span class="en">Local AI chat over your own documents. Answers with sources, nothing leaves the computer.</span></p>
+        <p class="up">macOS · <span class="de">offline</span><span class="en">offline</span></p>
+        <p class="more up"><span class="de">Mehr erfahren</span><span class="en">Learn more</span> →</p>
+      </div>
+      <div class="win " role="img" aria-label="agraChat, Antwort mit Quellen">
+        <div class="side"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="it on">Chat</div><div class="it">Quellen</div><div class="it">Index</div><div class="h">Modell</div><div class="it">qwen3 · lokal</div></div>
+        <div class="body">
+          <div class="title">agraChat</div>
+          <div class="msg me">Wie baue ich agraTRADE?</div>
+          <div class="msg ai">Im Ordner <b>trading/agraTRADE</b> den Build mit xcodebuild starten, dann mit dem Installationsskript in den Programme-Ordner kopieren. Deine Daten bleiben erhalten.
+            <div class="src"><span>trading.md · Build</span><span>CLAUDE.md</span><span>mac-installieren.sh</span></div></div>
+          <div class="msg me">Und wo liegt die Adressliste?</div>
+          <div class="input">Frage stellen …</div></div>
+      </div>
+    </a>
+    <a class="product" href="#browse">
+      <div class="txt">
+        <div class="up" style="color:var(--muted)">05 · <span class="st"><span class="de">Im Einsatz</span><span class="en">In use</span></span></div>
+        <h3>agraBrowse</h3>
+        <p><span class="de">Safari-Erweiterung: füllt Formulare aus, lehnt Cookie-Banner ab und macht aus jedem Impressum einen Lead.</span><span class="en">Safari extension: fills in forms, rejects cookie banners and turns any imprint into a lead.</span></p>
+        <p class="up">Safari · macOS</p>
+        <p class="more up"><span class="de">Mehr erfahren</span><span class="en">Learn more</span> →</p>
+      </div>
+      <div class="pop" role="img" aria-label="agraBrowse, Popup in Safari">
+        <div class="bar"><i></i><i></i><i></i><span>beispiel-firma.de/impressum</span></div>
+        <div class="popwrap"><div class="popup">
+          <div class="tabs"><b>Formular</b><b>Cookies</b><b class="on">Lead</b></div>
+          <div class="row"><span>Firma</span><span>Muster Hausverwaltung GmbH</span></div>
+          <div class="row"><span>Geschäftsführung</span><span>Petra Muster</span></div>
+          <div class="row"><span>Telefon</span><span>069 123456</span></div>
+          <div class="row"><span>Ort</span><span>Frankfurt am Main</span></div>
+          <div class="btn2">In Lead-Liste · CSV für agraCRM</div>
+        </div></div>
+      </div>
+    </a>
+    <a class="product" href="#web">
+      <div class="txt">
+        <div class="up" style="color:var(--muted)">06 · <span class="st"><span class="de">Angebot</span><span class="en">Service</span></span></div>
         <h3>agra WEB</h3>
         <p><span class="de">Webdesign für Ihr Unternehmen. Schlicht, schnell und auf jedem Gerät lesbar, zweisprachig, hell und dunkel, ohne Cookies. Wie diese Seite.</span><span class="en">Web design for your business. Clean, fast and readable on every device, bilingual, light and dark, no cookies. Like this site.</span></p>
         <p class="up"><span class="de">Websites · Hosting</span><span class="en">Websites · hosting</span></p>
+        <p class="more up"><span class="de">Mehr erfahren</span><span class="en">Learn more</span> →</p>
       </div>
       <div class="web" role="img" aria-label="Beispiel einer Website">
         <div class="bar"><i></i><i></i><i></i><span><span class="de">ihr-unternehmen.de</span><span class="en">your-business.com</span></span></div>
@@ -330,7 +427,333 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
           <div class="ct"><h4><span class="de">Ihr Unternehmen, klar erklärt.</span><span class="en">Your business, clearly explained.</span></h4><p><span class="de">Eine Seite, die sagt, was Sie tun, und wie man Sie erreicht.</span><span class="en">A site that says what you do and how to reach you.</span></p><span class="btn"><span class="de">KONTAKT</span><span class="en">CONTACT</span></span><div class="row3"><i></i><i></i><i></i></div></div>
         </div>
       </div>
-    </div>
+    </a>
+    </section>
+  </div>
+
+  <div class="view" id="v-crm">
+    <section class="detail">
+      <a class="back up" href="#produkte">← <span class="de">Alle Produkte</span><span class="en">All products</span></a>
+      <div class="dhead">
+        <h2>agraCRM</h2>
+        <span class="pillst up"><span class="de">Im Einsatz</span><span class="en">In use</span></span>
+      </div>
+      <p class="dlead"><span class="de">Native App für den Versicherungs- und Energievertrieb. Akquise läuft über große Buttons statt Formulare, jeder Anruf landet sofort in der Statistik. Mehrere Benutzer arbeiten mit getrennten, lokalen Datenbanken.</span><span class="en">Native app for insurance and energy sales. Prospecting runs on big buttons instead of forms, every call lands in the statistics instantly. Several users work with separate local databases.</span></p>
+      <p class="up dplat">macOS · iOS <span class="de">folgt</span><span class="en">coming</span></p>
+      <div class="shots "><div class="shot"><div class="win" role="img" aria-label="agraCRM, Ansicht Akquise">
+        <div class="side">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="h">Bereiche</div>
+          <div class="it">Start</div>
+          <div class="it on">Akquise</div>
+          <div class="it">Tagesziele</div>
+          <div class="it">Pipeline</div>
+          <div class="it">Kontakte</div>
+          <div class="it">Übersicht</div>
+          <div class="it">Rechner</div>
+          <div class="h">Heute</div>
+          <div class="it">Calls <small>18 / 30</small></div>
+          <div class="it">Entscheider <small>5 / 8</small></div>
+          <div class="it">Termine <small>2 / 2</small></div>
+        </div>
+        <div class="body">
+          <div class="title">Akquise</div>
+          <div class="cards">
+            <div class="c">
+              <div class="t">Beste Zeit für Entscheider</div>
+              <div class="bars"><i style="height:20%"></i><i style="height:28%"></i><i style="height:35%"></i><i style="height:42%"></i><i style="height:18%"></i><i style="height:24%"></i><i style="height:38%"></i><i class="hi" style="height:88%"></i><i style="height:46%"></i><i style="height:30%"></i></div>
+              <div class="axis"><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span></div>
+            </div>
+            <div class="c">
+              <div class="t">Ergebnisse · 90 Tage</div>
+              <div class="row"><span>Nicht erreicht</span><span>212 · 52 %</span></div>
+              <div class="row"><span>Vorzimmer</span><span>71 · 17 %</span></div>
+              <div class="row"><span>Rückruf</span><span>38 · 9 %</span></div>
+              <div class="row"><span>Entscheider</span><span>56 · 14 %</span></div>
+              <div class="row"><span>Termin vereinbart</span><span>31 · 8 %</span></div>
+            </div>
+          </div>
+          <div class="c">
+            <div class="t">Letzte Calls</div>
+            <div class="row"><span>Hausverwaltung Becker · 15:42</span><span class="pill g">Termin</span></div>
+            <div class="row"><span>Steuerkanzlei Yılmaz · 15:20</span><span class="pill b">Folgegespräch</span></div>
+            <div class="row"><span>Pflegedienst Sonnenhof · 14:58</span><span class="pill o">Rückruf</span></div>
+            <div class="row"><span>Malerbetrieb Krämer · 14:31</span><span class="pill g">Termin</span></div>
+          </div>
+        </div>
+      </div></div><div class="shot"><div class="win " role="img" aria-label="agraCRM, Anmeldung mit Muster">
+        <div class="side"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="h">Benutzer</div><div class="it on">Demo</div><div class="it">Team Vertrieb</div><div class="it">+ Benutzer</div></div>
+        <div class="body">
+          <div class="title">Anmelden</div>
+          <div class="cards">
+            <div class="c" style="display:grid;place-items:center;padding:18px">
+              <svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true"><g fill="none" stroke="#3987e5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20 L20 60 L20 100 L60 100 L100 100"/></g><g fill="#fff"><circle cx="20" cy="20" r="6" opacity="1"/><circle cx="60" cy="20" r="6" opacity="0.35"/><circle cx="100" cy="20" r="6" opacity="0.35"/><circle cx="20" cy="60" r="6" opacity="1"/><circle cx="60" cy="60" r="6" opacity="0.35"/><circle cx="100" cy="60" r="6" opacity="0.35"/><circle cx="20" cy="100" r="6" opacity="1"/><circle cx="60" cy="100" r="6" opacity="1"/><circle cx="100" cy="100" r="6" opacity="1"/></g></svg>
+              <div style="color:rgba(255,255,255,.62);margin-top:8px">Muster zeichnen oder PIN eingeben</div>
+            </div>
+            <div class="c"><div class="t">Sicherheit</div>
+              <div class="row"><span>PIN</span><span>4–10 Ziffern</span></div>
+              <div class="row"><span>3×3-Muster</span><span>aktiv</span></div>
+              <div class="row"><span>Passwort</span><span>Rückfallebene</span></div>
+              <div class="row"><span>Datenbank</span><span>je Benutzer</span></div>
+            </div>
+          </div>
+          <div class="c"><div class="t">Import</div>
+            <div class="row"><span>kunden-2026.xlsx</span><span class="pill g">412 Kontakte</span></div>
+            <div class="row"><span>Dubletten erkannt</span><span class="pill o">17</span></div>
+            <div class="row"><span>Anrufliste „Hausverwaltungen“</span><span class="pill b">48 offen</span></div>
+          </div></div>
+      </div></div></div>
+      <div class="label up" style="margin-top:56px"><span class="de">Aufbau</span><span class="en">Structure</span></div>
+      <div class="flow"><div class="node"><span class="de">Anmeldung</span><span class="en">Login</span><small>PIN · <span class="de">Muster</span><span class="en">pattern</span></small></div><span class="arr">→</span><div class="node"><span class="de">Oberfläche</span><span class="en">Interface</span><small>SwiftUI</small></div><span class="arr">→</span><div class="node"><span class="de">Daten je Benutzer</span><span class="en">Data per user</span><small>SwiftData</small></div><span class="arr">→</span><div class="node"><span class="de">Dokumente</span><span class="en">Documents</span><small><span class="de">Dateien</span><span class="en">files</span></small></div></div>
+      <div class="dgrid">
+        <div><div class="label up"><span class="de">Funktionen</span><span class="en">Features</span></div><ul><li><span class="de">Akquise mit einem Klick, Anruflisten</span><span class="en">One-click prospecting, call lists</span></li><li><span class="de">Tagesziele und beste Anrufzeit</span><span class="en">Daily goals and best call time</span></li><li><span class="de">Pipeline als Kanban</span><span class="en">Kanban pipeline</span></li><li><span class="de">Import aus CSV und Excel mit Dublettenprüfung</span><span class="en">CSV and Excel import with duplicate check</span></li><li><span class="de">Rechner inkl. Altersvorsorgedepot 2027</span><span class="en">Calculators incl. 2027 pension depot</span></li><li><span class="de">Dokumente je Kontakt</span><span class="en">Documents per contact</span></li></ul></div>
+        <div><div class="label up"><span class="de">Technik</span><span class="en">Technology</span></div><div class="chips"><span>SwiftUI</span><span>SwiftData</span><span>Swift Charts</span><span><span class="de">keine Fremdpakete</span><span class="en">no third-party packages</span></span></div>
+          <div class="label up" style="margin-top:28px"><span class="de">Stand</span><span class="en">Status</span></div><p class="muted"><span class="de">Stand 26.11.2026: Mac-App im täglichen Einsatz, iOS-Version in Planung.</span><span class="en">As of 26 Nov 2026: Mac app in daily use, iOS version planned.</span></p></div>
+      </div>
+      <a class="nextp up" href="#trade"><span class="de">Nächstes Produkt</span><span class="en">Next product</span>: agraTRADE →</a>
+    </section>
+  </div>
+  <div class="view" id="v-trade">
+    <section class="detail">
+      <a class="back up" href="#produkte">← <span class="de">Alle Produkte</span><span class="en">All products</span></a>
+      <div class="dhead">
+        <h2>agraTRADE</h2>
+        <span class="pillst up"><span class="de">Testbetrieb</span><span class="en">Testing</span></span>
+      </div>
+      <p class="dlead"><span class="de">Bots folgen großen Marktteilnehmern („Walen“): Große Überweisungen auf der Blockchain sind die Vorwarnung, große Aufträge im Orderbuch die Bestätigung. Alles läuft als Paper-Trading mit Spielgeld, damit sich jede Strategie erst beweisen muss.</span><span class="en">Bots follow large market players (“whales”): large on-chain transfers are the early warning, large order-book walls the confirmation. Everything runs as paper trading with play money, so every strategy has to prove itself first.</span></p>
+      <p class="up dplat">macOS · <span class="de">Krypto-Trading</span><span class="en">Crypto trading</span></p>
+      <div class="shots "><div class="shot"><div class="win" role="img" aria-label="agraTRADE, Bot-Ansicht mit Trades">
+        <div class="side">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="it">Übersicht</div>
+          <div class="h">Bots</div>
+          <div class="it on">Wal Klassik <small class="g">+1,8 %</small></div>
+          <div class="it">Orderbuch <small class="g">+0,9 %</small></div>
+          <div class="it">On-Chain <small>0,0 %</small></div>
+          <div class="it">Trend EMA <small class="r">−0,4 %</small></div>
+          <div class="it">RSI Rebound <small class="g">+0,6 %</small></div>
+          <div class="it">Buy &amp; Hold <small class="g">+0,5 %</small></div>
+        </div>
+        <div class="body">
+          <div class="title">Wal Klassik · BTC/EUR</div>
+          <div class="c">
+            <div class="t">Kapitalverlauf</div>
+            <svg class="chart" viewBox="0 0 400 110" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3987e5" stop-opacity=".45"/><stop offset="1" stop-color="#3987e5" stop-opacity="0"/></linearGradient></defs>
+              <path d="M0 80 L40 76 L80 82 L120 70 L160 72 L200 60 L240 64 L280 50 L320 54 L360 40 L400 34 L400 110 L0 110Z" fill="url(#fa)"/>
+              <path d="M0 80 L40 76 L80 82 L120 70 L160 72 L200 60 L240 64 L280 50 L320 54 L360 40 L400 34" fill="none" stroke="#3987e5" stroke-width="2"/>
+              <circle cx="398" cy="34" r="4" fill="#3987e5"/>
+            </svg>
+          </div>
+          <div class="c">
+            <div class="t">Trades</div>
+            <table class="t">
+              <tr><th>Zeit</th><th>Seite</th><th>Preis</th><th>G/V</th><th>Grund</th></tr>
+              <tr><td>19:10</td><td class="g">Verkauf</td><td>54.912 €</td><td class="g">+1,62 €</td><td>Verkaufswand 36 BTC</td></tr>
+              <tr><td>18:40</td><td class="g">Kauf</td><td>54.652 €</td><td>–</td><td>Kaufwand 37 BTC</td></tr>
+              <tr><td>17:39</td><td class="r">Verkauf</td><td>54.135 €</td><td class="r">−1,14 €</td><td>Stop-Loss</td></tr>
+              <tr><td>17:08</td><td class="g">Kauf</td><td>54.323 €</td><td>–</td><td>Wal-Zufluss 120 BTC</td></tr>
+            </table>
+          </div>
+        </div>
+      </div></div><div class="shot"><div class="win " role="img" aria-label="agraTRADE, Übersicht aller Bots">
+        <div class="side"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="it on">Übersicht</div><div class="h">Bots</div><div class="it">Wal Klassik</div><div class="it">Orderbuch</div><div class="it">On-Chain</div><div class="it">Trend EMA</div></div>
+        <div class="body">
+          <div class="title">Übersicht · Paper-Trading</div>
+          <div class="c"><div class="t">10 Strategien im Vergleich · 7 Tage</div>
+            <div class="row"><span>Wal Klassik</span><span class="g">+1,8 %</span></div>
+            <div class="row"><span>Orderbuch</span><span class="g">+0,9 %</span></div>
+            <div class="row"><span>RSI Rebound</span><span class="g">+0,6 %</span></div>
+            <div class="row"><span>Buy &amp; Hold</span><span class="g">+0,5 %</span></div>
+            <div class="row"><span>On-Chain</span><span>0,0 %</span></div>
+            <div class="row"><span>Trend EMA</span><span class="r">−0,4 %</span></div>
+          </div>
+          <div class="cards">
+            <div class="c"><div class="t">Gefolgte Wale</div><div class="row"><span>Adressen</span><span>10</span></div><div class="row"><span>Bewegung 24 h</span><span>3</span></div></div>
+            <div class="c"><div class="t">Risiko je Bot</div><div class="row"><span>Stop-Loss</span><span>3 %</span></div><div class="row"><span>Take-Profit</span><span>6 %</span></div></div>
+          </div></div>
+      </div></div></div>
+      <div class="label up" style="margin-top:56px"><span class="de">Aufbau</span><span class="en">Structure</span></div>
+      <div class="flow"><div class="node"><span class="de">Marktdaten</span><span class="en">Market data</span><small>Kraken · mempool.space</small></div><span class="arr">→</span><div class="node"><span class="de">Mitschreiber</span><span class="en">Recorder</span><small><span class="de">alle 60 s</span><span class="en">every 60 s</span></small></div><span class="arr">→</span><div class="node"><span class="de">Paper-Engine</span><span class="en">Paper engine</span><small>10 <span class="de">Strategien</span><span class="en">strategies</span></small></div><span class="arr">→</span><div class="node"><span class="de">Auswertung</span><span class="en">Analytics</span><small><span class="de">je Bot</span><span class="en">per bot</span></small></div></div>
+      <div class="dgrid">
+        <div><div class="label up"><span class="de">Funktionen</span><span class="en">Features</span></div><ul><li><span class="de">10 Strategien: Wal, Orderbuch, On-Chain, EMA, RSI, Buy &amp; Hold</span><span class="en">10 strategies: whale, order book, on-chain, EMA, RSI, buy &amp; hold</span></li><li><span class="de">Stop-Loss, Take-Profit, Abkühl- und Haltezeit</span><span class="en">Stop-loss, take-profit, cooldown and holding time</span></li><li><span class="de">10 gefolgte Wal-Adressen</span><span class="en">10 followed whale addresses</span></li><li><span class="de">Jeder Trade mit Begründung</span><span class="en">Every trade with its reason</span></li><li><span class="de">PIN-Sperre</span><span class="en">PIN lock</span></li><li><span class="de">Kein Live-Handel ohne Freigabe</span><span class="en">No live trading without approval</span></li></ul></div>
+        <div><div class="label up"><span class="de">Technik</span><span class="en">Technology</span></div><div class="chips"><span>SwiftUI</span><span>SwiftData</span><span>Kraken REST</span><span>mempool.space</span></div>
+          <div class="label up" style="margin-top:28px"><span class="de">Stand</span><span class="en">Status</span></div><p class="muted"><span class="de">Stand 26.11.2026: 10 Bots im Testbetrieb, Daten werden für spätere Backtests gesammelt.</span><span class="en">As of 26 Nov 2026: 10 bots in test mode, data is being recorded for later backtests.</span></p></div>
+      </div>
+      <a class="nextp up" href="#career"><span class="de">Nächstes Produkt</span><span class="en">Next product</span>: agraCAREER →</a>
+    </section>
+  </div>
+  <div class="view" id="v-career">
+    <section class="detail">
+      <a class="back up" href="#produkte">← <span class="de">Alle Produkte</span><span class="en">All products</span></a>
+      <div class="dhead">
+        <h2>agraCAREER</h2>
+        <span class="pillst up"><span class="de">Im Einsatz</span><span class="en">In use</span></span>
+      </div>
+      <p class="dlead"><span class="de">Ein KI-Agent sucht zweimal täglich Stellen, bewertet sie gegen das eigene Profil und legt Anschreiben, Lebenslauf und Mail-Entwurf an. Die App zeigt alles an und öffnet mit einem Klick die Bewerbungsseite samt fertigem Upload-Ordner.</span><span class="en">An AI agent searches for jobs twice a day, scores them against the profile and prepares cover letter, CV and e-mail draft. The app shows everything and opens the application page with a ready upload folder in one click.</span></p>
+      <p class="up dplat">macOS</p>
+      <div class="shots "><div class="shot"><div class="win" role="img" aria-label="agraCAREER, Ansicht Heute">
+        <div class="side">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="it on">Heute</div>
+          <div class="it">Kalender</div>
+          <div class="it">Alle Bewerbungen</div>
+          <div class="h">Unterlagen</div>
+          <div class="it">Lebensläufe</div>
+          <div class="it">Anschreiben</div>
+          <div class="it">Mail-Entwürfe <small>4</small></div>
+          <div class="it">Profil &amp; Skills</div>
+        </div>
+        <div class="body">
+          <div class="title">Heute · 12 neue Stellen</div>
+          <div class="cards">
+            <div class="c"><div class="t">Suchlauf 12:13</div>
+              <div class="row"><span>Gesichtet</span><span>148</span></div>
+              <div class="row"><span>Passend</span><span>12</span></div>
+              <div class="row"><span>Anschreiben erstellt</span><span>5</span></div>
+            </div>
+            <div class="c"><div class="t">Status</div>
+              <div class="row"><span>Beworben</span><span>23</span></div>
+              <div class="row"><span>Gespräch</span><span>3</span></div>
+              <div class="row"><span>Offen</span><span>18</span></div>
+            </div>
+          </div>
+          <div class="c">
+            <div class="t">Beste Funde</div>
+            <div class="row"><span>KI-Entwickler LLM · Bank, Frankfurt</span><span class="pill g">Passung 5</span></div>
+            <div class="row"><span>AI Engineer · Beratung, Eschborn</span><span class="pill g">Passung 5</span></div>
+            <div class="row"><span>Data Scientist · Versicherung, Wiesbaden</span><span class="pill b">Passung 4</span></div>
+            <div class="row"><span>Produktmanager KI · Vergleichsportal</span><span class="pill b">Passung 4</span></div>
+          </div>
+        </div>
+      </div></div><div class="shot"><div class="win " role="img" aria-label="agraCAREER, Kalender der Suchläufe">
+        <div class="side"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="it">Heute</div><div class="it on">Kalender</div><div class="it">Alle Bewerbungen</div><div class="h">Unterlagen</div><div class="it">Lebensläufe</div><div class="it">Anschreiben</div></div>
+        <div class="body">
+          <div class="title">Kalender · November</div>
+          <div class="cal"><i class="">16</i><i class="x">17</i><i class="x">18</i><i class="">19</i><i class="x">20</i><i class="x">21</i><i class="xx">22</i><i class="xx">23</i><i class="xx">24</i><i class="xx">25</i><i class="xx now">26</i><i class="">27</i><i class="">28</i><i class="">29</i></div>
+          <div class="c"><div class="t">Bewerbung · AI Engineer, Beratung</div>
+            <div class="row"><span>Weg</span><span class="pill b">Im Browser</span></div>
+            <div class="row"><span>Lebenslauf</span><span>CV AI (EN)</span></div>
+            <div class="row"><span>Anschreiben</span><span>fertig · 1 Seite</span></div>
+            <div class="row"><span>Status</span><span class="pill g">gesendet</span></div>
+          </div></div>
+      </div></div></div>
+      <div class="label up" style="margin-top:56px"><span class="de">Aufbau</span><span class="en">Structure</span></div>
+      <div class="flow"><div class="node"><span class="de">KI-Agent</span><span class="en">AI agent</span><small><span class="de">2× täglich</span><span class="en">twice a day</span></small></div><span class="arr">→</span><div class="node"><span class="de">Gemeinsame Liste</span><span class="en">Shared list</span><small>CSV</small></div><span class="arr">→</span><div class="node"><span class="de">agraCAREER</span><span class="en">agraCAREER</span><small>SwiftUI</small></div><span class="arr">→</span><div class="node"><span class="de">Bewerben</span><span class="en">Apply</span><small>Browser · Mail · Finder</small></div></div>
+      <div class="dgrid">
+        <div><div class="label up"><span class="de">Funktionen</span><span class="en">Features</span></div><ul><li><span class="de">Heute-Ansicht mit besten Funden</span><span class="en">Today view with best matches</span></li><li><span class="de">Kalender aller Suchläufe mit Tagesbericht</span><span class="en">Calendar of all search runs with daily report</span></li><li><span class="de">Anschreiben und Lebenslauf-Varianten</span><span class="en">Cover letters and CV variants</span></li><li><span class="de">Mail oder Web je Stelle erkannt</span><span class="en">Mail or web detected per job</span></li><li><span class="de">Ablehnen mit einem Klick, rückgängig in 5 s</span><span class="en">Reject in one click, undo within 5 s</span></li></ul></div>
+        <div><div class="label up"><span class="de">Technik</span><span class="en">Technology</span></div><div class="chips"><span>SwiftUI</span><span>Claude Code</span><span><span class="de">CSV als Datenbasis</span><span class="en">CSV as data layer</span></span><span><span class="de">kein Login, kein Netz</span><span class="en">no login, no network</span></span></div>
+          <div class="label up" style="margin-top:28px"><span class="de">Stand</span><span class="en">Status</span></div><p class="muted"><span class="de">Stand 26.11.2026: täglich im Einsatz, zuletzt Mail/Web-Kennzeichen und Ablehnen per Klick ergänzt.</span><span class="en">As of 26 Nov 2026: in daily use, mail/web markers and one-click reject added recently.</span></p></div>
+      </div>
+      <a class="nextp up" href="#chat"><span class="de">Nächstes Produkt</span><span class="en">Next product</span>: agraChat →</a>
+    </section>
+  </div>
+  <div class="view" id="v-chat">
+    <section class="detail">
+      <a class="back up" href="#produkte">← <span class="de">Alle Produkte</span><span class="en">All products</span></a>
+      <div class="dhead">
+        <h2>agraChat</h2>
+        <span class="pillst up"><span class="de">In Arbeit</span><span class="en">In progress</span></span>
+      </div>
+      <p class="dlead"><span class="de">agraChat liest einen ganzen Ordner ein, zerlegt die Dateien in Abschnitte und findet per Vektorsuche die passenden Stellen. Ein lokales Sprachmodell antwortet daraus und nennt die Quellen. Grundlage für Kundenprojekte mit vertraulichen Unterlagen.</span><span class="en">agraChat reads a whole folder, splits the files into chunks and finds the right passages by vector search. A local language model answers from them and cites its sources. The basis for client projects with confidential documents.</span></p>
+      <p class="up dplat">macOS · <span class="de">offline</span><span class="en">offline</span></p>
+      <div class="shots "><div class="shot"><div class="win " role="img" aria-label="agraChat, Antwort mit Quellen">
+        <div class="side"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="it on">Chat</div><div class="it">Quellen</div><div class="it">Index</div><div class="h">Modell</div><div class="it">qwen3 · lokal</div></div>
+        <div class="body">
+          <div class="title">agraChat</div>
+          <div class="msg me">Wie baue ich agraTRADE?</div>
+          <div class="msg ai">Im Ordner <b>trading/agraTRADE</b> den Build mit xcodebuild starten, dann mit dem Installationsskript in den Programme-Ordner kopieren. Deine Daten bleiben erhalten.
+            <div class="src"><span>trading.md · Build</span><span>CLAUDE.md</span><span>mac-installieren.sh</span></div></div>
+          <div class="msg me">Und wo liegt die Adressliste?</div>
+          <div class="input">Frage stellen …</div></div>
+      </div></div><div class="shot"><div class="win " role="img" aria-label="agraChat, Index">
+        <div class="side"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="it">Chat</div><div class="it">Quellen</div><div class="it on">Index</div></div>
+        <div class="body">
+          <div class="title">Index · Agent-Ordner</div>
+          <div class="cards">
+            <div class="c"><div class="t">Eingelesen</div><div class="row"><span>Textdateien</span><span>251</span></div><div class="row"><span>PDFs</span><span>129</span></div><div class="row"><span>Abschnitte</span><span>2.513</span></div></div>
+            <div class="c"><div class="t">Einstellungen</div><div class="row"><span>Abschnitt</span><span>~1.000</span></div><div class="row"><span>Treffer</span><span>6</span></div><div class="row"><span>Kontext</span><span>8.192 Tokens</span></div></div>
+          </div>
+          <div class="c"><div class="t">Suche</div><div class="row"><span>Vektorsuche + Wortbonus</span><span class="pill b">nomic-embed</span></div><div class="row"><span>Nur geänderte Dateien neu</span><span class="pill g">aktiv</span></div></div></div>
+      </div></div></div>
+      <div class="label up" style="margin-top:56px"><span class="de">Aufbau</span><span class="en">Structure</span></div>
+      <div class="flow"><div class="node"><span class="de">Ordner</span><span class="en">Folder</span><small>MD · PDF · CSV · Code</small></div><span class="arr">→</span><div class="node"><span class="de">Abschnitte</span><span class="en">Chunks</span><small>~1.000 <span class="de">Zeichen</span><span class="en">chars</span></small></div><span class="arr">→</span><div class="node"><span class="de">Vektorsuche</span><span class="en">Vector search</span><small>nomic-embed</small></div><span class="arr">→</span><div class="node"><span class="de">Lokales Modell</span><span class="en">Local model</span><small>qwen3 · Ollama</small></div></div>
+      <div class="dgrid">
+        <div><div class="label up"><span class="de">Funktionen</span><span class="en">Features</span></div><ul><li><span class="de">Antworten mit Quellenangabe</span><span class="en">Answers with citations</span></li><li><span class="de">Liest Text, Code und PDFs</span><span class="en">Reads text, code and PDFs</span></li><li><span class="de">Nur geänderte Dateien werden neu eingelesen</span><span class="en">Only changed files are re-indexed</span></li><li><span class="de">Komplett offline, keine Kosten pro Anfrage</span><span class="en">Fully offline, no cost per request</span></li></ul></div>
+        <div><div class="label up"><span class="de">Technik</span><span class="en">Technology</span></div><div class="chips"><span>SwiftUI</span><span>Ollama</span><span>RAG</span><span>Embeddings</span></div>
+          <div class="label up" style="margin-top:28px"><span class="de">Stand</span><span class="en">Status</span></div><p class="muted"><span class="de">Stand 26.11.2026: Logik fertig und an echten Dateien geprüft, App in Entwicklung.</span><span class="en">As of 26 Nov 2026: logic finished and tested on real files, app in development.</span></p></div>
+      </div>
+      <a class="nextp up" href="#browse"><span class="de">Nächstes Produkt</span><span class="en">Next product</span>: agraBrowse →</a>
+    </section>
+  </div>
+  <div class="view" id="v-browse">
+    <section class="detail">
+      <a class="back up" href="#produkte">← <span class="de">Alle Produkte</span><span class="en">All products</span></a>
+      <div class="dhead">
+        <h2>agraBrowse</h2>
+        <span class="pillst up"><span class="de">Im Einsatz</span><span class="en">In use</span></span>
+      </div>
+      <p class="dlead"><span class="de">Drei Werkzeuge in einem Popup. Formulare werden aus gespeicherten Profilen gefüllt, ohne je etwas abzuschicken. Cookie-Banner werden automatisch auf „nur notwendige“ gestellt. Aus einem Impressum entstehen Firmendaten für die Akquise in agraCRM.</span><span class="en">Three tools in one popup. Forms are filled from saved profiles without ever submitting. Cookie banners are set to “necessary only” automatically. An imprint becomes company data for prospecting in agraCRM.</span></p>
+      <p class="up dplat">Safari · macOS</p>
+      <div class="shots "><div class="shot"><div class="pop" role="img" aria-label="agraBrowse, Popup in Safari">
+        <div class="bar"><i></i><i></i><i></i><span>beispiel-firma.de/impressum</span></div>
+        <div class="popwrap"><div class="popup">
+          <div class="tabs"><b>Formular</b><b>Cookies</b><b class="on">Lead</b></div>
+          <div class="row"><span>Firma</span><span>Muster Hausverwaltung GmbH</span></div>
+          <div class="row"><span>Geschäftsführung</span><span>Petra Muster</span></div>
+          <div class="row"><span>Telefon</span><span>069 123456</span></div>
+          <div class="row"><span>Ort</span><span>Frankfurt am Main</span></div>
+          <div class="btn2">In Lead-Liste · CSV für agraCRM</div>
+        </div></div>
+      </div></div><div class="shot"><div class="pop" role="img" aria-label="agraBrowse, Cookie-Banner abgelehnt">
+        <div class="bar"><i></i><i></i><i></i><span>shop.example</span></div>
+        <div class="popwrap"><div class="popup">
+          <div class="tabs"><b>Formular</b><b class="on">Cookies</b><b>Lead</b></div>
+          <div class="row"><span>Automatisch ablehnen</span><span class="pill g">an</span></div>
+          <div class="row"><span>Diese Seite</span><span>nur notwendige</span></div>
+          <div class="row"><span>Abgelehnt insgesamt</span><span>214</span></div>
+          <div class="row"><span>Erkannte Anbieter</span><span>11</span></div>
+        </div></div>
+      </div></div></div>
+      <div class="label up" style="margin-top:56px"><span class="de">Aufbau</span><span class="en">Structure</span></div>
+      <div class="flow"><div class="node"><span class="de">Webseite</span><span class="en">Web page</span><small>Safari</small></div><span class="arr">→</span><div class="node"><span class="de">Formular · Cookies · Lead</span><span class="en">Form · Cookies · Lead</span><small><span class="de">regelbasiert</span><span class="en">rule-based</span></small></div><span class="arr">→</span><div class="node"><span class="de">Lokaler Speicher</span><span class="en">Local storage</span><small><span class="de">nichts verlässt den Mac</span><span class="en">nothing leaves the Mac</span></small></div><span class="arr">→</span><div class="node"><span class="de">agraCRM</span><span class="en">agraCRM</span><small>CSV</small></div></div>
+      <div class="dgrid">
+        <div><div class="label up"><span class="de">Funktionen</span><span class="en">Features</span></div><ul><li><span class="de">Füllt nur leere Felder, nie Passwort, Karte oder IBAN</span><span class="en">Fills only empty fields, never password, card or IBAN</span></li><li><span class="de">Klickt nie „Akzeptieren“</span><span class="en">Never clicks “Accept”</span></li><li><span class="de">Erkennt 11 Cookie-Anbieter</span><span class="en">Recognises 11 consent providers</span></li><li><span class="de">Lead aus dem Impressum per Klick</span><span class="en">Lead from the imprint in one click</span></li><li><span class="de">Tests: 87 von 87 bestanden</span><span class="en">Tests: 87 of 87 passed</span></li></ul></div>
+        <div><div class="label up"><span class="de">Technik</span><span class="en">Technology</span></div><div class="chips"><span>JavaScript</span><span>Safari Web Extension</span><span>Manifest V3</span><span><span class="de">ohne KI, offline</span><span class="en">no AI, offline</span></span></div>
+          <div class="label up" style="margin-top:28px"><span class="de">Stand</span><span class="en">Status</span></div><p class="muted"><span class="de">Stand 26.11.2026: Version 1.1 installiert und auf echten Seiten geprüft.</span><span class="en">As of 26 Nov 2026: version 1.1 installed and tested on real sites.</span></p></div>
+      </div>
+      <a class="nextp up" href="#web"><span class="de">Nächstes Produkt</span><span class="en">Next product</span>: agra WEB →</a>
+    </section>
+  </div>
+  <div class="view" id="v-web">
+    <section class="detail">
+      <a class="back up" href="#produkte">← <span class="de">Alle Produkte</span><span class="en">All products</span></a>
+      <div class="dhead">
+        <h2>agra WEB</h2>
+        <span class="pillst up"><span class="de">Angebot</span><span class="en">Service</span></span>
+      </div>
+      <p class="dlead"><span class="de">Websites, die sagen, was Sie tun und wie man Sie erreicht. Eine Datei, kein Baukasten, keine Cookies. Gehostet bei GitHub Pages oder auf Ihrer eigenen Domain.</span><span class="en">Websites that say what you do and how to reach you. One file, no site builder, no cookies. Hosted on GitHub Pages or your own domain.</span></p>
+      <p class="up dplat"><span class="de">Websites · Hosting</span><span class="en">Websites · hosting</span></p>
+      <div class="shots one"><div class="shot"><div class="web" role="img" aria-label="Beispiel einer Website">
+        <div class="bar"><i></i><i></i><i></i><span><span class="de">ihr-unternehmen.de</span><span class="en">your-business.com</span></span></div>
+        <div class="pg">
+          <div class="sb"><b class="l"></b><b></b><b style="width:80%"></b><b style="width:60%"></b></div>
+          <div class="ct"><h4><span class="de">Ihr Unternehmen, klar erklärt.</span><span class="en">Your business, clearly explained.</span></h4><p><span class="de">Eine Seite, die sagt, was Sie tun, und wie man Sie erreicht.</span><span class="en">A site that says what you do and how to reach you.</span></p><span class="btn"><span class="de">KONTAKT</span><span class="en">CONTACT</span></span><div class="row3"><i></i><i></i><i></i></div></div>
+        </div>
+      </div></div></div>
+      <div class="label up" style="margin-top:56px"><span class="de">Aufbau</span><span class="en">Structure</span></div>
+      <div class="flow"><div class="node"><span class="de">Erstgespräch</span><span class="en">First call</span><small><span class="de">Inhalte</span><span class="en">content</span></small></div><span class="arr">→</span><div class="node"><span class="de">Entwurf</span><span class="en">Draft</span><small><span class="de">hell · dunkel</span><span class="en">light · dark</span></small></div><span class="arr">→</span><div class="node"><span class="de">Feinschliff</span><span class="en">Polish</span><small>DE · EN</small></div><span class="arr">→</span><div class="node"><span class="de">Online</span><span class="en">Live</span><small>GitHub Pages</small></div></div>
+      <div class="dgrid">
+        <div><div class="label up"><span class="de">Funktionen</span><span class="en">Features</span></div><ul><li><span class="de">Hell- und Dunkelmodus</span><span class="en">Light and dark mode</span></li><li><span class="de">Deutsch und Englisch</span><span class="en">German and English</span></li><li><span class="de">Impressum und Datenschutz</span><span class="en">Legal notice and privacy policy</span></li><li><span class="de">Ohne Cookies und Tracking</span><span class="en">No cookies or tracking</span></li><li><span class="de">Passende Visitenkarte</span><span class="en">Matching business card</span></li></ul></div>
+        <div><div class="label up"><span class="de">Technik</span><span class="en">Technology</span></div><div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div>
+          <div class="label up" style="margin-top:28px"><span class="de">Stand</span><span class="en">Status</span></div><p class="muted"><span class="de">Stand 26.11.2026: diese Seite ist das erste Projekt.</span><span class="en">As of 26 Nov 2026: this site is the first project.</span></p></div>
+      </div>
+      <a class="nextp up" href="#crm"><span class="de">Nächstes Produkt</span><span class="en">Next product</span>: agraCRM →</a>
     </section>
   </div>
 
@@ -444,13 +867,13 @@ html[data-lang="en"] .de{display:none} html:not([data-lang="en"]) .en{display:no
 <script>
 (function(){
   var root=document.documentElement;
-  var names=["start","ueber-mich","kontakt","impressum","datenschutz"];
+  var names=["start","ueber-mich","kontakt","impressum","datenschutz","crm","trade","career","chat","browse","web"];
   var sec=document.getElementById("produkte-sec");
   function nav(h){document.querySelectorAll("aside nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)})}
   function show(){
     var h=(location.hash||"").slice(1), v=h==="produkte"?"start":(names.indexOf(h)<0?"start":h);
     names.forEach(function(n){document.getElementById("v-"+n).classList.toggle("on",n===v)});
-    nav(h==="produkte"?"produkte":v);
+    nav(h==="produkte"||["crm","trade","career","chat","browse","web"].indexOf(h)>=0?"produkte":v);
     if(h==="produkte"){sec.scrollIntoView({behavior:"smooth"})} else {window.scrollTo(0,0)}
   }
   window.addEventListener("scroll",function(){
